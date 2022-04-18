@@ -8,14 +8,14 @@ import OneChangeOne from './../../../assets/onechangeone.png';
 import ShipDayAfter from './../../../assets/shipdayafter.png';
 import Cup from './../../../assets/cup.png';
 
-import { formatMoneyVND } from '@monorepo/function-shares';
+import { formatMoneyVND, useWindowSize } from '@monorepo/function-shares';
 import {
   Dividers,
   ModalDetailInfo,
   Buttons,
   ModalAddCart,
+  AdjustedQuantity,
 } from '@monorepo/ui-shares';
-import { useWindowSize } from '@monorepo/function-shares';
 
 export interface DetailProps {
   detail: any;
@@ -58,19 +58,31 @@ export function Detail(props: DetailProps) {
               </div>
             </Col>
             <Col span={24}>
-              <span style={{ fontSize: 18, fontWeight: 700, color: '#EC4261' }}>
-                {formatMoneyVND(detail?.market_price)}
-              </span>
-              <span
-                style={{
-                  marginLeft: 19,
-                  fontSize: 14,
-                  color: '#B6BDCB',
-                  textDecoration: 'line-through',
-                }}
-              >
-                {formatMoneyVND(detail?.market_price)}
-              </span>
+              <div className={styles['row_between_center']}>
+                {' '}
+                <p>
+                  <span
+                    style={{ fontSize: 18, fontWeight: 700, color: '#EC4261' }}
+                  >
+                    {formatMoneyVND(detail?.market_price)}
+                  </span>
+                  <span
+                    style={{
+                      marginLeft: 19,
+                      fontSize: 14,
+                      color: '#B6BDCB',
+                      textDecoration: 'line-through',
+                    }}
+                  >
+                    {formatMoneyVND(detail?.market_price)}
+                  </span>
+                </p>
+                <AdjustedQuantity
+                  handleQuantity={(child: number) => {
+                    console.log(child);
+                  }}
+                />
+              </div>
             </Col>
             <Col className={styles['row_between_center']} span={24}>
               <div>

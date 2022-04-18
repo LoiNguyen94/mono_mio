@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/next": "13.10.1",
+    "@nrwl/next": "13.10.2",
     "antd": "^4.19.5",
     "core-js": "^3.6.5",
     "next": "12.1.2",
@@ -21,14 +21,14 @@
   },
   "devDependencies": {
     "@nrwl/cli": "13.10.1",
-    "@nrwl/cypress": "13.10.1",
-    "@nrwl/eslint-plugin-nx": "13.10.1",
-    "@nrwl/jest": "13.10.1",
-    "@nrwl/linter": "13.10.1",
-    "@nrwl/nx-cloud": "latest",
-    "@nrwl/react": "13.10.1",
-    "@nrwl/web": "13.10.1",
-    "@nrwl/workspace": "13.10.1",
+    "@nrwl/cypress": "13.10.2",
+    "@nrwl/eslint-plugin-nx": "13.10.2",
+    "@nrwl/jest": "13.10.2",
+    "@nrwl/linter": "13.10.2",
+    "@nrwl/nx-cloud": "13.3.1",
+    "@nrwl/react": "13.10.2",
+    "@nrwl/web": "13.10.2",
+    "@nrwl/workspace": "13.10.2",
     "@testing-library/react": "12.1.4",
     "@testing-library/react-hooks": "7.0.2",
     "@types/jest": "27.0.2",
@@ -48,7 +48,7 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
     "jest": "27.2.3",
-    "nx": "13.10.1",
+    "nx": "13.10.2",
     "prettier": "^2.5.1",
     "react-test-renderer": "18.0.0",
     "sass": "1.43.2",
@@ -56,3 +56,4 @@
     "typescript": "~4.6.2"
   }
 }
+
