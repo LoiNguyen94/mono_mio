@@ -1,5 +1,6 @@
 export const roundToX = (num: number) => {
-  return num.toFixed();
+  if (num) return num.toFixed();
+  return 0;
 };
 
 export const formatMoneyVND = (num: number) => {
