@@ -1,0 +1,45 @@
+.card_custom {
+  background: #ffffff;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.row_center {
+  display: flex;
+  align-items: center;
+}
+
+.row_between_center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name_product {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  color: #212121;
+  mix-blend-mode: normal;
+}
+
+.button_custom {
+  border: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.button_custom:focus {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.text_description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+          line-clamp: 4; 
+  -webkit-box-orient: vertical;
+}

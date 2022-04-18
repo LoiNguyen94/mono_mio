@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "consumer": "apps/consumer",
+    "consumer-e2e": "apps/consumer-e2e",
+    "function-shares": "libs/function-shares",
+    "ui-shares": "libs/ui-shares"
+  }
+}
