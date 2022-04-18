@@ -57,6 +57,7 @@ export function ModalAddCart({
       footer={false}
       closable={false}
       // mask={false}
+      transitionName=""
       visible={true}
     >
       <div className={styles['p_10_20_10_20']}>

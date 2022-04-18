@@ -35,6 +35,7 @@ export function ModalDetailInfo({
       footer={false}
       closable={false}
       // mask={false}
+      transitionName=""
       visible={true}
     >
       <div>
