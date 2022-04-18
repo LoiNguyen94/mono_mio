@@ -4,13 +4,13 @@ import styles from './common.module.scss';
 import { useWindowSize } from '@monorepo/function-shares';
 
 export interface ModalDetailInfoProps {
-  visibleParent: boolean;
+  // visibleParent: boolean;
   content: string;
   handle(): any;
 }
 
 export function ModalDetailInfo({
-  visibleParent = false,
+  // visibleParent = false,
   content,
   handle,
 }: ModalDetailInfoProps) {
@@ -35,7 +35,7 @@ export function ModalDetailInfo({
       footer={false}
       closable={false}
       // mask={false}
-      visible={visibleParent}
+      visible={true}
     >
       <div>
         <div style={{ position: 'absolute' }}>

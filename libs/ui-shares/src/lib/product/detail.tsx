@@ -259,17 +259,21 @@ export function Detail(props: DetailProps) {
         />
       </div>
 
-      <ModalDetailInfo
-        visibleParent={visibleModalProductInfo}
-        content={detail?.info?.description}
-        handle={() => setVisibleModalProductInfo(false)}
-      />
+      {visibleModalProductInfo && (
+        <ModalDetailInfo
+          // visibleParent={visibleModalProductInfo}
+          content={detail?.info?.description}
+          handle={() => setVisibleModalProductInfo(false)}
+        />
+      )}
 
-      <ModalAddCart
-        data={detail}
-        visibleParent={visibleModalAddCart}
-        handle={() => setVisibleModalAddCart(false)}
-      />
+      {visibleModalAddCart && (
+        <ModalAddCart
+          data={detail}
+          // visibleParent={visibleModalAddCart}
+          handle={() => setVisibleModalAddCart(false)}
+        />
+      )}
     </div>
   );
 }

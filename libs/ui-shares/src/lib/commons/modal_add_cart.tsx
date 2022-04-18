@@ -8,13 +8,13 @@ import { useWindowSize, formatMoneyVND } from '@monorepo/function-shares';
 import { Buttons } from '@monorepo/ui-shares';
 
 export interface ModalAddCartProps {
-  visibleParent: boolean;
+  // visibleParent: boolean;
   data: any;
   handle(): any;
 }
 
 export function ModalAddCart({
-  visibleParent = false,
+  // visibleParent = false,
   data,
   handle,
 }: ModalAddCartProps) {
@@ -57,7 +57,7 @@ export function ModalAddCart({
       footer={false}
       closable={false}
       // mask={false}
-      visible={visibleParent}
+      visible={true}
     >
       <div className={styles['p_10_20_10_20']}>
         <div style={{ position: 'absolute' }}>
