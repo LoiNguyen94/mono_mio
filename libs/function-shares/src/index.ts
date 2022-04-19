@@ -1,4 +1,4 @@
-export * from './lib/functionShares';
+export * from './lib/function-shares';
 
 export * from './lib/storage';
 
