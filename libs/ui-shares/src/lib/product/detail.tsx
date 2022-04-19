@@ -30,6 +30,10 @@ export function Detail(props: DetailProps) {
   const [visibleModalAddCart, setVisibleModalAddCart] = useState(false);
   const { width } = useWindowSize();
   const widthFocus = width || 501;
+  const priceList = Object.keys(detail?.price_list).map(
+    (key) => detail?.price_list[key]
+  );
+  const priceMio = priceList[0]?.price;
 
   if (errors) {
     return <span style={{ color: 'red' }}>ERR: {errors}</span>;
@@ -40,7 +44,7 @@ export function Detail(props: DetailProps) {
   };
 
   return (
-    <div style={{ marginTop: 85, paddingBottom: 15 }}>
+    <div style={{ marginTop: 85, paddingBottom: 85 }}>
       <Image
         alt="bg"
         src={detail?.photo}
@@ -64,7 +68,7 @@ export function Detail(props: DetailProps) {
                   <span
                     style={{ fontSize: 18, fontWeight: 700, color: '#EC4261' }}
                   >
-                    {formatMoneyVND(detail?.market_price)}
+                    {formatMoneyVND(priceMio)}
                   </span>
                   <span
                     style={{
@@ -98,51 +102,58 @@ export function Detail(props: DetailProps) {
               </div>
               <div>Đã bán 50</div>
             </Col>
-            <Col className={styles['row_center']} span={9}>
-              <div style={{ width: 25, height: 21 }}>
-                <Image
-                  layout="fixed"
-                  alt="FreeShip"
-                  src={FreeShip}
-                  width={17}
-                  height={21}
-                />
+
+            <Col className={styles['row_between_center']} span={24}>
+              <div className={styles['row_center']}>
+                <div style={{ width: 25, height: 21 }}>
+                  <Image
+                    layout="fixed"
+                    alt="FreeShip"
+                    src={FreeShip}
+                    width={17}
+                    height={21}
+                    priority
+                  />
+                </div>
+                <span style={{ fontSize: 12 }}>
+                  Freeship đơn
+                  <br /> hàng 210k
+                </span>
               </div>
-              <span style={{ fontSize: 12 }}>
-                Freeship đơn
-                <br /> hàng 210k
-              </span>
-            </Col>
-            <Col className={styles['row_center']} span={9}>
-              <div style={{ width: 25, height: 21 }}>
-                <Image
-                  layout="fixed"
-                  alt="ShipDayAfter"
-                  src={ShipDayAfter}
-                  width={21}
-                  height={21}
-                />
+              <div className={styles['row_center']}>
+                <div style={{ width: 25, height: 21 }}>
+                  <Image
+                    layout="fixed"
+                    alt="ShipDayAfter"
+                    src={ShipDayAfter}
+                    width={21}
+                    height={21}
+                    priority
+                  />
+                </div>
+                <span style={{ fontSize: 12 }}>
+                  Giao hàng vào
+                  <br /> ngày hôm sau
+                </span>
               </div>
-              <span style={{ fontSize: 12 }}>
-                Giao hàng vào
-                <br /> ngày hôm sau
-              </span>
-            </Col>
-            <Col className={styles['row_center']} span={6}>
-              <div style={{ width: 25, height: 21 }}>
-                <Image
-                  layout="fixed"
-                  alt="OneChangeOne"
-                  src={OneChangeOne}
-                  width={17}
-                  height={21}
-                />
+              <div className={styles['row_center']}>
+                <div style={{ width: 25, height: 21 }}>
+                  <Image
+                    layout="fixed"
+                    alt="OneChangeOne"
+                    src={OneChangeOne}
+                    width={17}
+                    height={21}
+                    priority
+                  />
+                </div>
+                <span style={{ fontSize: 12 }}>
+                  Bao ăn
+                  <br /> 1 đổi 1
+                </span>
               </div>
-              <span style={{ fontSize: 12 }}>
-                Bao ăn
-                <br /> 1 đổi 1
-              </span>
             </Col>
+
             <Col className={styles['row_center']} span={24}>
               <div style={{ width: 25, height: 21 }}>
                 <Image
@@ -151,6 +162,7 @@ export function Detail(props: DetailProps) {
                   src={Cup}
                   width={18}
                   height={18}
+                  priority
                 />
               </div>
               <div style={{ fontSize: 12 }}>
@@ -176,7 +188,7 @@ export function Detail(props: DetailProps) {
 
           <Col span={13}>Giá Mio cung cấp</Col>
           <Col style={{ color: '#EC4261' }} span={11}>
-            {formatMoneyVND(detail?.market_price)}
+            {formatMoneyVND(priceMio)}
           </Col>
 
           <Col span={13}>Danh mục</Col>
@@ -232,24 +244,26 @@ export function Detail(props: DetailProps) {
           {detail?.info?.description}
         </div>
       </div>
-      <Dividers top="20" bottom="10" />
-      <Button
-        onClick={() => {
-          setVisibleModalProductInfo(true);
-        }}
-        type="link"
-        className={`${styles['row_center']} ${styles['button_custom']}`}
-      >
-        <span style={{ color: '#EC4261', fontSize: 14, marginRight: 5 }}>
-          Xem thêm
-        </span>
-        <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-          <path
-            d="M10.59 0.59375L6 5.17375L1.41 0.59375L0 2.00375L6 8.00375L12 2.00375L10.59 0.59375Z"
-            fill="#EC4261"
-          />
-        </svg>
-      </Button>
+      <Dividers top="20" />
+      <div style={{ paddingBottom: 20 }}>
+        <Button
+          onClick={() => {
+            setVisibleModalProductInfo(true);
+          }}
+          type="link"
+          className={`${styles['row_center']} ${styles['button_custom']}`}
+        >
+          <span style={{ color: '#EC4261', fontSize: 14, marginRight: 5 }}>
+            Xem thêm
+          </span>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+            <path
+              d="M10.59 0.59375L6 5.17375L1.41 0.59375L0 2.00375L6 8.00375L12 2.00375L10.59 0.59375Z"
+              fill="#EC4261"
+            />
+          </svg>
+        </Button>
+      </div>
       <div style={{ backgroundColor: '#F6F6F6', padding: '24px 20px' }}>
         <p
           style={{
@@ -263,7 +277,15 @@ export function Detail(props: DetailProps) {
         </p>
       </div>
 
-      <div style={{ padding: '20px 20px 0px 20px' }}>
+      <div
+        style={{
+          padding: '20px 20px 20px 20px',
+          position: 'fixed',
+          bottom: 0,
+          width: widthFocus >= 500 ? 500 : widthFocus,
+          backgroundColor: 'white',
+        }}
+      >
         <Buttons
           handleClick={() => setVisibleModalAddCart(true)}
           title="Thêm vào giỏ hàng"

@@ -1,8 +1,9 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
+import { wrapper } from '@monorepo/function-shares';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   const AnyComponent = Component as any;
   return (
     <>
@@ -16,4 +17,5 @@ function CustomApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default CustomApp;
+// export default App;
+export default wrapper.withRedux(App);

@@ -3,8 +3,11 @@ import Image from 'next/image';
 import { Button, Modal, Row, Col } from 'antd';
 import styles from './common.module.scss';
 import Corner from './../../../assets/cornerv.png';
-
-import { useWindowSize, formatMoneyVND } from '@monorepo/function-shares';
+import {
+  useWindowSize,
+  formatMoneyVND,
+  setStorage,
+} from '@monorepo/function-shares';
 import { Buttons, AdjustedQuantity } from '@monorepo/ui-shares';
 
 export interface ModalAddCartProps {
@@ -24,10 +27,17 @@ export function ModalAddCart({
   const [chooseType, setChooseType] = useState(1);
   const [total, setTotal] = useState('0');
 
+  useEffect(() => {
+    setTotal(formatMoneyVND(parseInt(data?.market_price) * 1));
+  }, []);
+
   const getQuantity = (child: number) => {
     setTotal(formatMoneyVND(parseInt(data?.market_price) * child));
   };
 
+  const addCart = () => {
+    setStorage('test', 'tooi laf trtrurwmf');
+  };
   return (
     <Modal
       bodyStyle={{
@@ -187,7 +197,7 @@ export function ModalAddCart({
             </Col>
             <Col span={12}>
               <Buttons
-                handleClick={() => alert()}
+                handleClick={() => addCart()}
                 title="Thêm vào giỏ hàng"
                 bgColor="#EC4261"
               />

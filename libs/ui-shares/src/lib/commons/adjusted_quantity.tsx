@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from 'antd';
 import styles from './common.module.scss';
-
 export interface AdjustedQuantityProps {
   id?: number;
   handleQuantity?: any;
