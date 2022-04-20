@@ -21,8 +21,7 @@ export function ModalAddCart({
   data,
   handle,
 }: ModalAddCartProps) {
-  const { width } = useWindowSize();
-  const widthFocus = width || 501;
+  const { widthFixed, positionModal } = useWindowSize();
   const fakeData = ['Gói 250', 'Gói 350', 'Gói 450'];
   const [chooseType, setChooseType] = useState(1);
   const [total, setTotal] = useState('0');
@@ -50,11 +49,11 @@ export function ModalAddCart({
         paddingLeft: 0,
       }}
       maskStyle={{
-        width: widthFocus >= 500 ? 500 : widthFocus,
-        left: widthFocus >= 500 ? 'calc((100vw - 500px) / 2)' : 0,
-        right: widthFocus >= 500 ? 'calc((100vw - 500px) / 2)' : 0,
+        width: widthFixed,
+        left: positionModal,
+        right: positionModal,
       }}
-      width={widthFocus >= 500 ? 500 : widthFocus}
+      width={widthFixed}
       maskClosable={true}
       footer={false}
       closable={false}

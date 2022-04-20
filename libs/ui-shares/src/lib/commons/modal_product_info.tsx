@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Button, Modal, Row, Col } from 'antd';
 import styles from './common.module.scss';
 import { useWindowSize } from '@monorepo/function-shares';
@@ -15,8 +14,7 @@ export function ModalDetailInfo({
   handle,
 }: ModalDetailInfoProps) {
   const fakeData = ['Giá rẻ nhất', 'Giao trong 24h'];
-  const { width } = useWindowSize();
-  const widthFocus = width || 501;
+  const { widthFixed, positionModal } = useWindowSize();
 
   return (
     <Modal
@@ -26,11 +24,11 @@ export function ModalDetailInfo({
         borderRadius: '12px 12px 0px 0px',
       }}
       maskStyle={{
-        width: widthFocus >= 500 ? 500 : widthFocus,
-        left: widthFocus >= 500 ? 'calc((100vw - 500px) / 2)' : 0,
-        right: widthFocus >= 500 ? 'calc((100vw - 500px) / 2)' : 0,
+        width: widthFixed,
+        left: positionModal,
+        right: positionModal,
       }}
-      width={widthFocus >= 500 ? 500 : widthFocus}
+      width={widthFixed}
       maskClosable={true}
       footer={false}
       closable={false}

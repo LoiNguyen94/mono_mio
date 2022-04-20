@@ -28,8 +28,8 @@ export function Detail(props: DetailProps) {
   const [countStar, setCountStar] = useState(1);
   const [visibleModalProductInfo, setVisibleModalProductInfo] = useState(false);
   const [visibleModalAddCart, setVisibleModalAddCart] = useState(false);
-  const { width } = useWindowSize();
-  const widthFocus = width || 501;
+  const { widthFixed } = useWindowSize();
+
   const priceList = Object.keys(detail?.price_list).map(
     (key) => detail?.price_list[key]
   );
@@ -42,14 +42,14 @@ export function Detail(props: DetailProps) {
   const handleRate = (e: any) => {
     setCountStar(e);
   };
-
+  
   return (
     <div style={{ marginTop: 85, paddingBottom: 85 }}>
       <Image
         alt="bg"
         src={detail?.photo}
-        width={widthFocus >= 500 ? 500 : widthFocus}
-        height={320}
+        width={widthFixed}
+        height={400}
         priority
       />
       <div style={{ padding: '0px 20px', marginTop: -40 }}>
@@ -279,10 +279,10 @@ export function Detail(props: DetailProps) {
 
       <div
         style={{
-          padding: '20px 20px 20px 20px',
+          padding: 20,
           position: 'fixed',
           bottom: 0,
-          width: widthFocus >= 500 ? 500 : widthFocus,
+          width: widthFixed,
           backgroundColor: 'white',
         }}
       >

@@ -7,6 +7,14 @@ export const useWindowSize = () => {
     () => ({
       width: isClient ? window.innerWidth : undefined,
       height: isClient ? window.innerHeight : undefined,
+
+      widthFixed: isClient
+        ? window.innerWidth >= 500
+          ? 500
+          : window.innerWidth
+        : 500,
+
+      positionModal: window.innerWidth >= 500 ? 'calc((100vw - 500px) / 2)' : 0,
     }),
     [isClient]
   );

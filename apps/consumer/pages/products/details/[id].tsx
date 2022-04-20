@@ -10,7 +10,7 @@ const DetailPro = ({ detail, errors }: any) => {
 
   return (
     <TransitionLayout
-      title={'Chi tiết sản phẩm'}
+      title={detail?.name}
       photo={detail?.photo}
       description={detail?.log_time}
     >

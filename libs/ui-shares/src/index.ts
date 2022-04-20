@@ -9,3 +9,6 @@ export * from './lib/commons/button';
 export * from './lib/commons/adjusted_quantity';
 
 export * from './lib/product/detail';
+
+export * from './lib/cart/index';
+

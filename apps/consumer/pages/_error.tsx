@@ -1,10 +1,16 @@
-function PageErr({ statusCode }) {
+function Error({ statusCode }) {
   return (
-    <>
-      <div>Mất mạng Internett rồi</div>
-    </>
-  );
+    <p>
+      {statusCode
+        ? `An error ${statusCode} occurred on server`
+        : 'An error occurred on client'}
+    </p>
+  )
 }
 
-// export default App;
-export default PageErr;
+Error.getInitialProps = ({ res, err }) => {
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
+  return { statusCode }
+}
+
+export default Error

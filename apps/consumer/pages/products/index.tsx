@@ -1,4 +1,5 @@
 import { TransitionLayout, Header } from '@monorepo/ui-shares';
+import { getListProduct } from '@monorepo/function-shares';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Row, Col, Card } from 'antd';
@@ -76,8 +77,7 @@ function Products(props: ProductProps) {
 
 export async function getStaticProps(context) {
   // Fetch data from external API
-  const res = await fetch(`https://dev-api.itaphoa.com/customer/products`);
-  const data = await res.json();
+  const data = await getListProduct();
   // Pass data to the page via props
   return { props: { data } };
 }
