@@ -7,7 +7,7 @@
     "consumer:dev": "env-cmd -f .env.dev npx nx run consumer:serve",
     "start": "nx serve",
     "build": "nx build",
-    "consumer:build": "env-cmd -f .env.dev npx nx build consumer --prod",
+    "consumer:build": "env-cmd -f .env.dev npx nx build consumer --prod --skip-nx-cache",
     "test": "nx test"
   },
   "private": true,
